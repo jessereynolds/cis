@@ -131,13 +131,7 @@ class cis::windows::local_policies::user_rights (
   #  }
   #}
 
-  # CIS 2.2.2
-  #if $allow_computer_network_access != false {
-  #  local_security_policy { 'Access this computer from the network':
-  #    ensure       => present,
-  #    policy_value => join($allow_computer_network_access, ','),
-  #  }
-  #}
+
 
   # CIS 2.2.3
   # if $act_as_part_of_os != false {
