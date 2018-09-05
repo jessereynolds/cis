@@ -4,12 +4,12 @@ class cis::windows::security_options::interactive_logon (
   Cis::String_false $logon_title,
   Boolean $is_domain_controller                         = false,
   Boolean $enable_level_2                               = false,
-  Cis::Enabled_disabled $do_not_display_last_name       = 'Enabled',
-  Cis::Enabled_disabled $do_not_require_ctl_alt_del     = 'Disabled',
+  Cis::Enabled_disabled $do_not_display_last_name       = '0',
+  Cis::Enabled_disabled $do_not_require_ctl_alt_del     = '1',
   Integer[1, 900] $machine_inactivity_limit             = 900,
   Integer[0, 4] $no_cached_previous_logons              = 4,
   Integer[5, 14] $password_change_warning_days          = 10,
-  Cis::Enabled_disabled $require_dc_auth_unlock_machine = 'Enabled',
+  Cis::Enabled_disabled $require_dc_auth_unlock_machine = '0',
   Cis::Smartcard_options $smartcard_remove_behaviour    = 'Lock Workstation',
 ) {
 

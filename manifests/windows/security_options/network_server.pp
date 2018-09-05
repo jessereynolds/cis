@@ -2,11 +2,11 @@
 class cis::windows::security_options::network_server (
   Boolean $is_domain_controller                         = false,
   Integer[1, 15] $suspend_session_on_idle_minutes       = 15,
-  Cis::Enabled_disabled $sign_comms_always              = 'Enabled',
-  Cis::Enabled_disabled $sign_comms_client_agrees       = 'Enabled',
-  Cis::Enabled_disabled $disconnect_logon_expires       = 'Enabled',
+  Cis::Enabled_disabled $sign_comms_always              = '0',
+  Cis::Enabled_disabled $sign_comms_client_agrees       = '0',
+  Cis::Enabled_disabled $disconnect_logon_expires       = '0',
   Cis::Spn_valid $spn_tgt_valid_lvl                     = 'Accept if provided by client',
-  Cis::Enabled_disabled $send_unencrypted_password_smb  = 'Disabled',
+  Cis::Enabled_disabled $send_unencrypted_password_smb  = '1',
 ) {
 
   if $facts['os']['family'] != 'windows' {

@@ -28,8 +28,8 @@ class cis::windows::account_policies::passwords (
   Variant[Integer[60], Boolean[false]] $password_max_age     = 60,
   Variant[Integer[1], Boolean[false]] $password_min_age      = 1,
   Variant[Integer[14], Boolean[false]] $password_min_length  = 14,
-  Cis::Enabled_disabled $password_complexity                 = 'Enabled',
-  Cis::Enabled_disabled $password_reversible_encryption      = 'Disabled',
+  Cis::Enabled_disabled $password_complexity                 = '0',
+  Cis::Enabled_disabled $password_reversible_encryption      = '1',
 ) {
 
   if $facts['os']['family'] != 'windows' {

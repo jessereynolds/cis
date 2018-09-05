@@ -1,8 +1,8 @@
 #
 class cis::windows::security_options::domain_controller (
-  Cis::Enabled_disabled $operators_schedule_tasks       = 'Disabled',
+  Cis::Enabled_disabled $operators_schedule_tasks       = '1',
   Cis::Require_none $ldap_signing                       = 'Require signing',
-  Cis::Enabled_disabled $refuse_machine_password_change = 'Disabled',
+  Cis::Enabled_disabled $refuse_machine_password_change = '1',
 ) {
 
   if $::os['family'] != 'windows' {
