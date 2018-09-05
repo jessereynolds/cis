@@ -110,8 +110,8 @@ class cis::windows::local_policies::user_rights (
   }
 
   if $is_domain_controller == true {
-    $_allow_computer_network_access = $allow_computer_network_access + ['ENTERPRISE DOMAIN CONTROLLERS']
-    $_allow_log_on_locally          = $allow_log_on_locally + ['ENTERPRISE DOMAIN CONTROLLERS']
+    $_allow_computer_network_access = $allow_computer_network_access + ['*S-1-5-9']
+    $_allow_log_on_locally          = $allow_log_on_locally + ['*S-1-5-9']
     $_allow_log_on_rdp              = $allow_log_on_rdp - ['*S-1-5-32-555']
     # $_deny_computer_network_access  = $deny_computer_network_access - ['member of *S-1-5-32-544 group']
     # $_trusted_delegation            = $trusted_delegation - ['*S-1-0-0'] + ['*S-1-5-32-544']
