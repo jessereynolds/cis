@@ -18,18 +18,18 @@ class cis::windows::security_options::domain_controller (
   # }
 
   # CIS 2.3.5.2
-  if $ldap_signing != false {
-    local_security_policy { 'Domain controller: LDAP server signing requirements':
-      ensure       => present,
-      policy_value => $ldap_signing,
-    }
-  }
+  # if $ldap_signing != false {
+  # local_security_policy { 'Domain controller: LDAP server signing requirements':
+  #    ensure       => present,
+  #    policy_value => $ldap_signing,
+  #  }
+  #}
 
   # CIS 2.3.5.3
-  if $refuse_machine_password_change != false {
-    local_security_policy { 'Domain controller: Refuse machine account password changes':
-      ensure       => present,
-      policy_value => $refuse_machine_password_change,
-    }
-  }
+  # if $refuse_machine_password_change != false {
+  #  local_security_policy { 'Domain controller: Refuse machine account password changes':
+  #    ensure       => present,
+  #    policy_value => $refuse_machine_password_change,
+  #  }
+  #}
 }
