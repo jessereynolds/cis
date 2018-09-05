@@ -69,7 +69,7 @@ class cis::windows::local_policies::user_rights (
   Cis::Array_false $add_workstations_to_domain     = ['*S-1-5-32-544'],
   Cis::Array_false $adjust_process_memory_quote    = ['*S-1-5-32-544', '*S-1-5-19', '*S-1-5-20'],
   Cis::Array_false $allow_log_on_locally           = ['*S-1-5-32-544'],
-  Cis::Array_false $allow_log_on_rdp               = ['*S-1-5-32-544','*S-1-5-13'],
+  Cis::Array_false $allow_log_on_rdp               = ['*S-1-5-32-544','*S-1-5-32-555'],
   Cis::Array_false $backup_users                   = ['*S-1-5-32-544'],
   Cis::Array_false $change_sys_time                = ['*S-1-5-32-544', '*S-1-5-19'],
   Cis::Array_false $change_tz                      = ['*S-1-5-32-544', '*S-1-5-19'],
@@ -79,11 +79,11 @@ class cis::windows::local_policies::user_rights (
   Cis::Array_false $create_perm_shared_objects     = ['*S-1-0-0'],
   Cis::Array_false $create_symbolic_links          = ['*S-1-5-32-544'],
   Cis::Array_false $debug_programs                 = ['*S-1-5-32-544'],
-  Cis::Array_false $deny_computer_network_access   = ['Guests', 'Local account', 'member of *S-1-5-32-544 group'],
-  Cis::Array_false $deny_log_on_as_batch           = ['Guests'],
-  Cis::Array_false $deny_log_on_as_service         = ['Guests'],
-  Cis::Array_false $deny_local_log_on              = ['Guests'],
-  Cis::Array_false $deny_log_on_rdp                = ['Guests','Local account'],
+  Cis::Array_false $deny_computer_network_access   = ['*S-1-5-32-546', 'Local account', 'member of *S-1-5-32-544 group'],
+  Cis::Array_false $deny_log_on_as_batch           = ['*S-1-5-32-546'],
+  Cis::Array_false $deny_log_on_as_service         = ['*S-1-5-32-546'],
+  Cis::Array_false $deny_local_log_on              = ['*S-1-5-32-546'],
+  Cis::Array_false $deny_log_on_rdp                = ['*S-1-5-32-546','*S-1-5-113'],
   Cis::Array_false $trusted_delegation             = ['*S-1-0-0'],
   Cis::Array_false $force_shutdwon_remote          = ['*S-1-5-32-544'],
   Cis::Array_false $gen_security_audits            = ['*S-1-5-19', '*S-1-5-20'],
@@ -112,7 +112,7 @@ class cis::windows::local_policies::user_rights (
   if $is_domain_controller == true {
     $_allow_computer_network_access = $allow_computer_network_access + ['ENTERPRISE DOMAIN CONTROLLERS']
     $_allow_log_on_locally          = $allow_log_on_locally + ['ENTERPRISE DOMAIN CONTROLLERS']
-    $_allow_log_on_rdp              = $allow_log_on_rdp - ['*S-1-5-13']
+    $_allow_log_on_rdp              = $allow_log_on_rdp - ['*S-1-5-32-555']
     # $_deny_computer_network_access  = $deny_computer_network_access - ['member of *S-1-5-32-544 group']
     # $_trusted_delegation            = $trusted_delegation - ['*S-1-0-0'] + ['*S-1-5-32-544']
   } else {
