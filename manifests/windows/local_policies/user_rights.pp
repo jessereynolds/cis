@@ -396,12 +396,12 @@ class cis::windows::local_policies::user_rights (
     }
 
     # CIS 2.2.35
-    if $profile_sys_perf  != false {
-      local_security_policy { 'Profile system performance':
-        ensure       => present,
-        policy_value => join($profile_sys_perf, ','),
-      }
-    }
+    # if $profile_sys_perf  != false {
+    #  local_security_policy { 'Profile system performance':
+    #    ensure       => present,
+    #    policy_value => join($profile_sys_perf, ','),
+    #  }
+    #}
 
     # CIS 2.2.36
     if $replace_proc_lvl_token  != false {
