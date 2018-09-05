@@ -121,7 +121,7 @@ class cis::windows::local_policies::user_rights (
   #  $allow_log_on_rdp              = $allow_log_on_rdp
     # $_deny_computer_network_access  = $deny_computer_network_access
     # $_trusted_delegation            = $trusted_delegation
-  }
+
 
   # CIS 2.2.1
   # if $access_credential_manager != false {
