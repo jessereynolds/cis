@@ -97,7 +97,7 @@ class cis::windows::local_policies::user_rights (
   Cis::Array_false $mod_hw_env_values              = ['*S-1-5-32-544'],
   Cis::Array_false $perform_vol_maint              = ['*S-1-5-32-544'],
   Cis::Array_false $profile_single_proc            = ['*S-1-5-32-544'],
-  Cis::Array_false $profile_sys_perf               = ['*S-1-5-32-544','S-1-5-80-3139157870-2983391045-3678747466-658725712-1809340420'],
+  Cis::Array_false $profile_sys_perf               = ['*S-1-5-32-544','*S-1-5-80-3139157870-2983391045-3678747466-658725712-1809340420'],
   Cis::Array_false $replace_proc_lvl_token         = ['*S-1-5-19', '*S-1-5-20'],
   Cis::Array_false $restore_files_dirs             = ['*S-1-5-32-544'],
   Cis::Array_false $shutdown_sys                   = ['*S-1-5-32-544'],
