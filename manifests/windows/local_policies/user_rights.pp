@@ -277,13 +277,13 @@ class cis::windows::local_policies::user_rights (
     }
   }
 
-    # CIS 2.2.21
-    if $deny_log_on_rdp  != false {
-      local_security_policy { 'Deny log on through Remote Desktop Services':
-        ensure       => present,
-        policy_value => join($deny_log_on_rdp, ','),
-      }
+  # CIS 2.2.21
+  if $deny_log_on_rdp  != false {
+    local_security_policy { 'Deny log on through Remote Desktop Services':
+      ensure       => present,
+      policy_value => join($deny_log_on_rdp, ','),
     }
+  }
 
     # CIS 2.2.22
     #if $trusted_delegation  != false {
@@ -293,147 +293,147 @@ class cis::windows::local_policies::user_rights (
     #  }
     #}
 
-    # CIS 2.2.23
-    if $force_shutdwon_remote  != false {
-      local_security_policy { 'Force shutdown from a remote system':
-        ensure       => present,
-        policy_value => join($force_shutdwon_remote, ','),
-      }
+  # CIS 2.2.23
+  if $force_shutdwon_remote  != false {
+    local_security_policy { 'Force shutdown from a remote system':
+      ensure       => present,
+      policy_value => join($force_shutdwon_remote, ','),
     }
+  }
 
-    # CIS 2.2.24
-    if $gen_security_audits  != false {
-      local_security_policy { 'Generate security audits':
-        ensure       => present,
-        policy_value => join($gen_security_audits, ',')
-      }
+  # CIS 2.2.24
+  if $gen_security_audits  != false {
+    local_security_policy { 'Generate security audits':
+      ensure       => present,
+      policy_value => join($gen_security_audits, ',')
     }
+  }
 
-    # CIS 2.2.25
-    if $impersonate_client  != false {
-      local_security_policy { 'Impersonate a client after authentication':
-        ensure       => present,
-        policy_value => join($impersonate_client, ',')
-      }
+  # CIS 2.2.25
+  if $impersonate_client  != false {
+    local_security_policy { 'Impersonate a client after authentication':
+      ensure       => present,
+      policy_value => join($impersonate_client, ',')
     }
+  }
 
-    # CIS 2.2.26
-    if $increase_schedule_priority  != false {
-      local_security_policy { 'Increase scheduling priority':
-        ensure       => present,
-        policy_value => join($increase_schedule_priority, ','),
-      }
+  # CIS 2.2.26
+  if $increase_schedule_priority  != false {
+    local_security_policy { 'Increase scheduling priority':
+      ensure       => present,
+      policy_value => join($increase_schedule_priority, ','),
     }
+  }
 
-    # CIS 2.2.27
-    if $manage_device_drivers  != false {
-      local_security_policy { 'Load and unload device drivers':
-        ensure       => present,
-        policy_value => join($manage_device_drivers, ','),
-      }
+  # CIS 2.2.27
+  if $manage_device_drivers  != false {
+    local_security_policy { 'Load and unload device drivers':
+      ensure       => present,
+      policy_value => join($manage_device_drivers, ','),
     }
+  }
 
-    # CIS 2.2.28
-    #if $lock_pages_in_mem  != false {
-    #  local_security_policy { 'Lock pages in memory':
-    #    ensure       => present,
-    #    policy_value => join($lock_pages_in_mem, ','),
-    #  }
-    #}
+  # CIS 2.2.28
+  #if $lock_pages_in_mem  != false {
+  #  local_security_policy { 'Lock pages in memory':
+  #    ensure       => present,
+  #    policy_value => join($lock_pages_in_mem, ','),
+  #  }
+  #}
 
-    # CIS 2.2.29
-    if $log_on_as_batch  != false and $enable_level_2 == true and $is_domain_controller == true {
-      local_security_policy { 'Log on as a batch job':
-        ensure       => present,
-        policy_value => join($log_on_as_batch, ','),
-      }
+  # CIS 2.2.29
+  if $log_on_as_batch  != false and $enable_level_2 == true and $is_domain_controller == true {
+    local_security_policy { 'Log on as a batch job':
+      ensure       => present,
+      policy_value => join($log_on_as_batch, ','),
     }
+  }
 
-    # CIS 2.2.30
-    if $manage_audit_sec_logs  != false {
-      local_security_policy { 'Manage auditing and security log':
-        ensure       => present,
-        policy_value => join($manage_audit_sec_logs, ','),
-      }
+  # CIS 2.2.30
+  if $manage_audit_sec_logs  != false {
+    local_security_policy { 'Manage auditing and security log':
+      ensure       => present,
+      policy_value => join($manage_audit_sec_logs, ','),
     }
+  }
 
-    # CIS 2.2.31
-    # if $modify_object_label  != false {
-    #  local_security_policy { 'Modify an object label':
-    #    ensure       => present,
-    #    policy_value => join($modify_object_label, ','),
-    #  }
-    #}
+  # CIS 2.2.31
+  # if $modify_object_label  != false {
+  #  local_security_policy { 'Modify an object label':
+  #    ensure       => present,
+  #    policy_value => join($modify_object_label, ','),
+  #  }
+  #}
 
-    # CIS 2.2.32
-    if $mod_hw_env_values  != false {
-      local_security_policy { 'Modify firmware environment values':
-        ensure       => present,
-        policy_value => join($mod_hw_env_values, ','),
-      }
+  # CIS 2.2.32
+  if $mod_hw_env_values  != false {
+    local_security_policy { 'Modify firmware environment values':
+      ensure       => present,
+      policy_value => join($mod_hw_env_values, ','),
     }
+  }
 
-    # CIS 2.2.33
-    if $perform_vol_maint  != false {
-      local_security_policy { 'Perform volume maintenance tasks':
-        ensure       => present,
-        policy_value => join($perform_vol_maint, ','),
-      }
+  # CIS 2.2.33
+  if $perform_vol_maint  != false {
+    local_security_policy { 'Perform volume maintenance tasks':
+      ensure       => present,
+      policy_value => join($perform_vol_maint, ','),
     }
+  }
 
-    # CIS 2.2.34
-    if $profile_single_proc  != false {
-      local_security_policy { 'Profile single process':
-        ensure       => present,
-        policy_value => join($profile_single_proc, ','),
-      }
+  # CIS 2.2.34
+  if $profile_single_proc  != false {
+    local_security_policy { 'Profile single process':
+      ensure       => present,
+      policy_value => join($profile_single_proc, ','),
     }
+  }
 
-    # CIS 2.2.35
-    # if $profile_sys_perf  != false {
-    #  local_security_policy { 'Profile system performance':
-    #    ensure       => present,
-    #    policy_value => join($profile_sys_perf, ','),
-    #  }
-    #}
+  # CIS 2.2.35
+  # if $profile_sys_perf  != false {
+  #  local_security_policy { 'Profile system performance':
+  #    ensure       => present,
+  #    policy_value => join($profile_sys_perf, ','),
+  #  }
+  #}
 
-    # CIS 2.2.36
-    if $replace_proc_lvl_token  != false {
-      local_security_policy { 'Replace a process level token':
-        ensure       => present,
-        policy_value => join($replace_proc_lvl_token, ','),
-      }
+  # CIS 2.2.36
+  if $replace_proc_lvl_token  != false {
+    local_security_policy { 'Replace a process level token':
+      ensure       => present,
+      policy_value => join($replace_proc_lvl_token, ','),
     }
+  }
 
-    # CIS 2.2.37
-    if $restore_files_dirs  != false {
-      local_security_policy { 'Restore files and directories':
-        ensure       => present,
-        policy_value => join($restore_files_dirs, ','),
-      }
+  # CIS 2.2.37
+  if $restore_files_dirs  != false {
+    local_security_policy { 'Restore files and directories':
+      ensure       => present,
+      policy_value => join($restore_files_dirs, ','),
     }
+  }
 
-    # CIS 2.2.38
-    if $shutdown_sys  != false {
-      local_security_policy { 'Shut down the system':
-        ensure       => present,
-        policy_value => join($shutdown_sys, ','),
-      }
+  # CIS 2.2.38
+  if $shutdown_sys  != false {
+    local_security_policy { 'Shut down the system':
+      ensure       => present,
+      policy_value => join($shutdown_sys, ','),
     }
+  }
 
-    # CIS 2.2.39
-    # if $sync_dir_service_data  != false {
-    #  local_security_policy { 'Synchronize directory service data':
-    #    ensure       => present,
-    #    policy_value => join($sync_dir_service_data, ','),
-    #  }
-    #}
+  # CIS 2.2.39
+  # if $sync_dir_service_data  != false {
+  #  local_security_policy { 'Synchronize directory service data':
+  #    ensure       => present,
+  #    policy_value => join($sync_dir_service_data, ','),
+  #  }
+  #}
 
-    # CIS 2.2.40
-    if $own_files_and_objects  != false {
-      local_security_policy { 'Take ownership of files or other objects':
-        ensure       => present,
-        policy_value => join($own_files_and_objects, ','),
-      }
+  # CIS 2.2.40
+  if $own_files_and_objects  != false {
+    local_security_policy { 'Take ownership of files or other objects':
+      ensure       => present,
+      policy_value => join($own_files_and_objects, ','),
     }
+  }
 }
