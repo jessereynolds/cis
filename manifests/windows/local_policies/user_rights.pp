@@ -113,13 +113,13 @@ class cis::windows::local_policies::user_rights (
     $_allow_computer_network_access = $allow_computer_network_access + ['ENTERPRISE DOMAIN CONTROLLERS']
     $_allow_log_on_locally          = $allow_log_on_locally + ['ENTERPRISE DOMAIN CONTROLLERS']
     $_allow_log_on_rdp              = $allow_log_on_rdp - ['Remote Desktop Users']
-    $_deny_computer_network_access  = $deny_computer_network_access - ['member of Administrators group']
+    # $_deny_computer_network_access  = $deny_computer_network_access - ['member of Administrators group']
     # $_trusted_delegation            = $trusted_delegation - ['No One'] + ['Administrators']
   } else {
     $_allow_computer_network_access = $allow_computer_network_access
     $_allow_log_on_locally          = $allow_log_on_locally
     $_allow_log_on_rdp              = $allow_log_on_rdp
-    $_deny_computer_network_access  = $deny_computer_network_access
+    # $_deny_computer_network_access  = $deny_computer_network_access
     # $_trusted_delegation            = $trusted_delegation
   }
 
@@ -252,12 +252,12 @@ class cis::windows::local_policies::user_rights (
   }
 
   # CIS 2.2.17
-  if $deny_computer_network_access  != false {
-    local_security_policy { 'Deny access to this computer from the network':
-      ensure       => present,
-      policy_value => join($_deny_computer_network_access, ','),
-    }
-  }
+  # if $deny_computer_network_access  != false {
+  #  local_security_policy { 'Deny access to this computer from the network':
+  #    ensure       => present,
+  #    policy_value => join($_deny_computer_network_access, ','),
+  #  }
+  #}
 
   # CIS 2.2.18
   if $deny_log_on_as_batch  != false {
