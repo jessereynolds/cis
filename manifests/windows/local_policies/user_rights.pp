@@ -63,7 +63,7 @@
 class cis::windows::local_policies::user_rights (
   Boolean $is_domain_controller                    = false,
   Boolean $enable_level_2                          = false,
-  Cis::Array_false $access_credential_manager      = [''],
+  Cis::Array_false $access_credential_manager      = ['No One'],
   Cis::Array_false $allow_computer_network_access  = ['Administrators','Authenticated Users'],
   Cis::Array_false $act_as_part_of_os              = ['No One'],
   Cis::Array_false $add_workstations_to_domain     = ['Administrators'],
@@ -97,7 +97,7 @@ class cis::windows::local_policies::user_rights (
   Cis::Array_false $mod_hw_env_values              = ['Administrators'],
   Cis::Array_false $perform_vol_maint              = ['Administrators'],
   Cis::Array_false $profile_single_proc            = ['Administrators'],
-  Cis::Array_false $profile_sys_perf               = ['Administrators','NT SERVICE\WdiServiceHost'],
+  Cis::Array_false $profile_sys_perf               = ['Administrators',"NT SERVICE\\WdiServiceHost"],
   Cis::Array_false $replace_proc_lvl_token         = ['LOCAL SERVICE', 'NETWORK SERVICE'],
   Cis::Array_false $restore_files_dirs             = ['Administrators'],
   Cis::Array_false $shutdown_sys                   = ['Administrators'],
@@ -114,22 +114,22 @@ class cis::windows::local_policies::user_rights (
     $_allow_log_on_locally          = $allow_log_on_locally + ['ENTERPRISE DOMAIN CONTROLLERS']
     $_allow_log_on_rdp              = $allow_log_on_rdp - ['Remote Desktop Users']
     $_deny_computer_network_access  = $deny_computer_network_access - ['member of Administrators group']
-    $_trusted_delegation            = $trusted_delegation - ['No One'] + ['Administrators']
+    # $_trusted_delegation            = $trusted_delegation - ['No One'] + ['Administrators']
   } else {
     $_allow_computer_network_access = $allow_computer_network_access
     $_allow_log_on_locally          = $allow_log_on_locally
     $_allow_log_on_rdp              = $allow_log_on_rdp
     $_deny_computer_network_access  = $deny_computer_network_access
-    $_trusted_delegation            = $trusted_delegation
+    # $_trusted_delegation            = $trusted_delegation
   }
 
   # CIS 2.2.1
-  if $access_credential_manager != false {
-    local_security_policy { 'Access Credential Manager as a trusted caller':
-      ensure       => present,
-      policy_value => join($access_credential_manager, ','),
-    }
-  }
+  # if $access_credential_manager != false {
+  #  local_security_policy { 'Access Credential Manager as a trusted caller':
+  #    ensure       => present,
+  #    policy_value => join($access_credential_manager, ','),
+  #  }
+  # }
 
   # CIS 2.2.2
   if $allow_computer_network_access != false {
@@ -140,12 +140,12 @@ class cis::windows::local_policies::user_rights (
   }
 
   # CIS 2.2.3
-  if $act_as_part_of_os != false {
-    local_security_policy { 'Act as part of the operating system':
-      ensure       => present,
-      policy_value => join($act_as_part_of_os, ','),
-    }
-  }
+  # if $act_as_part_of_os != false {
+  # local_security_policy { 'Act as part of the operating system':
+  #    ensure       => present,
+  #    policy_value => join($act_as_part_of_os, ','),
+  #  }
+  #}
 
   # CIS 2.2.4
   if $add_workstations_to_domain != false {
@@ -212,12 +212,12 @@ class cis::windows::local_policies::user_rights (
   }
 
   # CIS 2.2.12
-  if $create_token_object  != false {
-    local_security_policy { 'Create a token object':
-      ensure       => present,
-      policy_value => join($create_token_object, ','),
-    }
-  }
+  # if $create_token_object  != false {
+  #  local_security_policy { 'Create a token object':
+  #    ensure       => present,
+  #    policy_value => join($create_token_object, ','),
+  #  }
+  #}
 
   # CIS 2.2.13
   if $create_global_objects  != false {
@@ -228,12 +228,12 @@ class cis::windows::local_policies::user_rights (
   }
 
   # CIS 2.2.14
-  if $create_perm_shared_objects  != false {
-    local_security_policy { 'Create permanent shared objects':
-      ensure       => present,
-      policy_value => join($create_perm_shared_objects, ','),
-    }
-  }
+  # if $create_perm_shared_objects  != false {
+  #  local_security_policy { 'Create permanent shared objects':
+  #    ensure       => present,
+  #    policy_value => join($create_perm_shared_objects, ','),
+  #  }
+  #}
 
   # CIS 2.2.15
   if $create_symbolic_links  != false {
@@ -292,12 +292,12 @@ class cis::windows::local_policies::user_rights (
     }
 
     # CIS 2.2.22
-    if $trusted_delegation  != false {
-      local_security_policy { 'Enable computer and user accounts to be trusted for delegation':
-        ensure       => present,
-        policy_value => join($_trusted_delegation, ','),
-      }
-    }
+    #if $trusted_delegation  != false {
+    #  local_security_policy { 'Enable computer and user accounts to be trusted for delegation':
+    #    ensure       => present,
+    #    policy_value => join($_trusted_delegation, ','),
+    #  }
+    #}
 
     # CIS 2.2.23
     if $force_shutdwon_remote  != false {
@@ -340,12 +340,12 @@ class cis::windows::local_policies::user_rights (
     }
 
     # CIS 2.2.28
-    if $lock_pages_in_mem  != false {
-      local_security_policy { 'Lock pages in memory':
-        ensure       => present,
-        policy_value => join($lock_pages_in_mem, ','),
-      }
-    }
+    #if $lock_pages_in_mem  != false {
+    #  local_security_policy { 'Lock pages in memory':
+    #    ensure       => present,
+    #    policy_value => join($lock_pages_in_mem, ','),
+    #  }
+    #}
 
     # CIS 2.2.29
     if $log_on_as_batch  != false and $enable_level_2 == true and $is_domain_controller == true {
@@ -364,12 +364,12 @@ class cis::windows::local_policies::user_rights (
     }
 
     # CIS 2.2.31
-    if $modify_object_label  != false {
-      local_security_policy { 'Modify an object label':
-        ensure       => present,
-        policy_value => join($modify_object_label, ','),
-      }
-    }
+    # if $modify_object_label  != false {
+    #  local_security_policy { 'Modify an object label':
+    #    ensure       => present,
+    #    policy_value => join($modify_object_label, ','),
+    #  }
+    #}
 
     # CIS 2.2.32
     if $mod_hw_env_values  != false {
@@ -428,12 +428,12 @@ class cis::windows::local_policies::user_rights (
     }
 
     # CIS 2.2.39
-    if $sync_dir_service_data  != false {
-      local_security_policy { 'Synchronize directory service data':
-        ensure       => present,
-        policy_value => join($sync_dir_service_data, ','),
-      }
-    }
+    # if $sync_dir_service_data  != false {
+    #  local_security_policy { 'Synchronize directory service data':
+    #    ensure       => present,
+    #    policy_value => join($sync_dir_service_data, ','),
+    #  }
+    #}
 
     # CIS 2.2.40
     if $own_files_and_objects  != false {
