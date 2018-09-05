@@ -35,12 +35,12 @@ class cis::windows::security_options::accounts (
   }
 
   # CIS 2.3.1.3
-  if $accounts_guest_account_status != false {
-    local_security_policy { 'Accounts: Guest account status':
-      ensure       => present,
-      policy_value => $accounts_guest_account_status,
-    }
-  }
+  # if $accounts_guest_account_status != false {
+  #  local_security_policy { 'Accounts: Guest account status':
+  #    ensure       => present,
+  #    policy_value => $accounts_guest_account_status,
+  #  }
+  # }
 
   # CIS 2.3.1.4
   if $blank_passords_at_console != false {
