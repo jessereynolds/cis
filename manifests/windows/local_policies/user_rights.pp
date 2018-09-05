@@ -129,7 +129,7 @@ class cis::windows::local_policies::user_rights (
   #    ensure       => present,
   #    policy_value => join($access_credential_manager, ','),
   #  }
-  # }
+  #}
 
   # CIS 2.2.2
   if $allow_computer_network_access != false {
