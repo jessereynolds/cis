@@ -63,7 +63,7 @@
 class cis::windows::local_policies::user_rights (
   Boolean $is_domain_controller                    = false,
   Boolean $enable_level_2                          = false,
-  Cis::Array_false $access_credential_manager      = ['No One'],
+  Cis::Array_false $access_credential_manager      = [''],
   Cis::Array_false $allow_computer_network_access  = ['Administrators','Authenticated Users'],
   Cis::Array_false $act_as_part_of_os              = ['No One'],
   Cis::Array_false $add_workstations_to_domain     = ['Administrators'],
