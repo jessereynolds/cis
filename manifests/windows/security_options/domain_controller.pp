@@ -10,12 +10,12 @@ class cis::windows::security_options::domain_controller (
   }
 
   # CIS 2.3.5.1
-  if $operators_schedule_tasks != false {
-    local_security_policy { 'Domain controller: Allow server operators to schedule tasks':
-      ensure       => present,
-      policy_value => $operators_schedule_tasks,
-    }
-  }
+  # if $operators_schedule_tasks != false {
+  #  local_security_policy { 'Domain controller: Allow server operators to schedule tasks':
+  #    ensure       => present,
+  #    policy_value => $operators_schedule_tasks,
+  #  }
+  # }
 
   # CIS 2.3.5.2
   if $ldap_signing != false {
