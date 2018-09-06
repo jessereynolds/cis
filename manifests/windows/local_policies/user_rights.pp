@@ -161,7 +161,7 @@ class cis::windows::local_policies::user_rights (
   if $allow_log_on_locally  != false {
     local_security_policy { 'Allow log on locally':
       ensure       => present,
-      policy_value => join($_allow_log_on_locally, ','),
+      policy_value => join($allow_log_on_locally, ','),
     }
   }
 
@@ -169,7 +169,7 @@ class cis::windows::local_policies::user_rights (
   if $allow_log_on_rdp  != false {
     local_security_policy { 'Allow log on through Remote Desktop Services':
       ensure       => present,
-      policy_value => join($_allow_log_on_rdp, ','),
+      policy_value => join($allow_log_on_rdp, ','),
     }
   }
 
