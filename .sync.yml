@@ -1,0 +1,15 @@
+Rakefile:
+  requires:
+    use_litmus_tasks: true
+
+Gemfile:
+  required:
+    ':development':
+      - gem: 'net-ssh'
+        version: '< 5.0.0'
+      - gem: 'puppet_litmus'
+        git: 'https://github.com/puppetlabs/puppet_litmus.git'
+      - gem: 'pdk'
+        git: 'https://github.com/tphoney/pdk.git'
+        branch: 'pin_cri'
+      - gem: 'serverspec'
