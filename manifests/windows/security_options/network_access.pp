@@ -17,11 +17,11 @@
 #
 class cis::windows::security_options::network_access (
   Boolean $is_domain_controller                                       = false,
-  Cis::Enabled_disabled $allow_anonymous_sid_translation              = 'Disabled',
-  Cis::Enabled_disabled $disallow_anonymous_enum_sam_accounts         = 'Enabled',
-  Cis::Enabled_disabled $disallow_anonymous_enum_sam_accounts_shares  = 'Enabled',
-  Cis::Enabled_disabled $disallow_storage_net_passwords_creds         = 'Enabled',
-  Cis::Enabled_disabled $everyone_access_anonymous_users              = 'Disabled',
+  Cis::Enabled_disabled $allow_anonymous_sid_translation              = '1',
+  Cis::Enabled_disabled $disallow_anonymous_enum_sam_accounts         = '0',
+  Cis::Enabled_disabled $disallow_anonymous_enum_sam_accounts_shares  = '0',
+  Cis::Enabled_disabled $disallow_storage_net_passwords_creds         = '0',
+  Cis::Enabled_disabled $everyone_access_anonymous_users              = '1',
   Cis::Array_false $named_pipes_access_anonymous                      = ['None'],
 ) {
 

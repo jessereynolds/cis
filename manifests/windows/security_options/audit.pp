@@ -1,7 +1,7 @@
 #
 class cis::windows::security_options::audit (
-  Cis::Enabled_disabled $force_audit_subcat_settings = 'Enabled',
-  Cis::Enabled_disabled $shutdown_unable_to_log      = 'Disabled',
+  Cis::Enabled_disabled $force_audit_subcat_settings = '0',
+  Cis::Enabled_disabled $shutdown_unable_to_log      = '1',
 ) {
 
   if $::os['family'] != 'windows' {

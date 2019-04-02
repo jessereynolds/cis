@@ -63,89 +63,83 @@
 class cis::windows::local_policies::user_rights (
   Boolean $is_domain_controller                    = false,
   Boolean $enable_level_2                          = false,
-  Cis::Array_false $access_credential_manager      = ['No One'],
-  Cis::Array_false $allow_computer_network_access  = ['Administrators','Authenticated Users'],
-  Cis::Array_false $act_as_part_of_os              = ['No One'],
-  Cis::Array_false $add_workstations_to_domain     = ['Administrators'],
-  Cis::Array_false $adjust_process_memory_quote    = ['Administrators', 'LOCAL SERVICE', 'NETWORK SERVICE'],
-  Cis::Array_false $allow_log_on_locally           = ['Administrators'],
-  Cis::Array_false $allow_log_on_rdp               = ['Administrators','Remote Desktop Users'],
-  Cis::Array_false $backup_users                   = ['Administrators'],
-  Cis::Array_false $change_sys_time                = ['Administrators', 'LOCAL SERVICE'],
-  Cis::Array_false $change_tz                      = ['Administrators', 'LOCAL SERVICE'],
-  Cis::Array_false $change_pagefile                = ['Administrators'],
-  Cis::Array_false $create_token_object            = ['No One'],
-  Cis::Array_false $create_global_objects          = ['Administrators', 'LOCAL SERVICE', 'NETWORK SERVICE', 'SERVICE'],
-  Cis::Array_false $create_perm_shared_objects     = ['No One'],
-  Cis::Array_false $create_symbolic_links          = ['Administrators'],
-  Cis::Array_false $debug_programs                 = ['Administrators'],
-  Cis::Array_false $deny_computer_network_access   = ['Guests', 'Local account', 'member of Administrators group'],
-  Cis::Array_false $deny_log_on_as_batch           = ['Guests'],
-  Cis::Array_false $deny_log_on_as_service         = ['Guests'],
-  Cis::Array_false $deny_local_log_on              = ['Guests'],
-  Cis::Array_false $deny_log_on_rdp                = ['Guests','Local account'],
-  Cis::Array_false $trusted_delegation             = ['No One'],
-  Cis::Array_false $force_shutdwon_remote          = ['Administrators'],
-  Cis::Array_false $gen_security_audits            = ['LOCAL SERVICE', 'NETWORK SERVICE'],
-  Cis::Array_false $impersonate_client             = ['Administrators', 'LOCAL SERVICE', 'NETWORK SERVICE', 'SERVICE'],
-  Cis::Array_false $increase_schedule_priority     = ['Administrators'],
-  Cis::Array_false $manage_device_drivers          = ['Administrators'],
-  Cis::Array_false $lock_pages_in_mem              = ['No One'],
-  Cis::Array_false $log_on_as_batch                = ['Administrators',],
-  Cis::Array_false $manage_audit_sec_logs          = ['Administrators'],
-  Cis::Array_false $modify_object_label            = ['No One'],
-  Cis::Array_false $mod_hw_env_values              = ['Administrators'],
-  Cis::Array_false $perform_vol_maint              = ['Administrators'],
-  Cis::Array_false $profile_single_proc            = ['Administrators'],
-  Cis::Array_false $profile_sys_perf               = ['Administrators','NT SERVICE\WdiServiceHost'],
-  Cis::Array_false $replace_proc_lvl_token         = ['LOCAL SERVICE', 'NETWORK SERVICE'],
-  Cis::Array_false $restore_files_dirs             = ['Administrators'],
-  Cis::Array_false $shutdown_sys                   = ['Administrators'],
-  Cis::Array_false $sync_dir_service_data          = ['No One'],
-  Cis::Array_false $own_files_and_objects          = ['Administrators'],
+  Cis::Array_false $access_credential_manager      = ['*S-1-0-0'],
+  Cis::Array_false $allow_computer_network_access  = ['*S-1-5-11','*S-1-5-32-544'],
+  Cis::Array_false $act_as_part_of_os              = ['*S-1-0-0'],
+  Cis::Array_false $add_workstations_to_domain     = ['*S-1-5-32-544'],
+  Cis::Array_false $adjust_process_memory_quote    = ['*S-1-5-32-544', '*S-1-5-19', '*S-1-5-20'],
+  Cis::Array_false $allow_log_on_locally           = ['*S-1-5-32-544'],
+  Cis::Array_false $allow_log_on_rdp               = ['*S-1-5-32-544','*S-1-5-32-555'],
+  Cis::Array_false $backup_users                   = ['*S-1-5-32-544'],
+  Cis::Array_false $change_sys_time                = ['*S-1-5-32-544', '*S-1-5-19'],
+  Cis::Array_false $change_tz                      = ['*S-1-5-32-544', '*S-1-5-19'],
+  Cis::Array_false $change_pagefile                = ['*S-1-5-32-544'],
+  Cis::Array_false $create_token_object            = ['*S-1-0-0'],
+  Cis::Array_false $create_global_objects          = ['*S-1-5-32-544', '*S-1-5-19', '*S-1-5-20', 'SERVICE'],
+  Cis::Array_false $create_perm_shared_objects     = ['*S-1-0-0'],
+  Cis::Array_false $create_symbolic_links          = ['*S-1-5-32-544'],
+  Cis::Array_false $debug_programs                 = ['*S-1-5-32-544'],
+  Cis::Array_false $deny_computer_network_access   = ['*S-1-5-32-546', 'Local account', 'member of *S-1-5-32-544 group'],
+  Cis::Array_false $deny_log_on_as_batch           = ['*S-1-5-32-546'],
+  Cis::Array_false $deny_log_on_as_service         = ['*S-1-5-32-546'],
+  Cis::Array_false $deny_local_log_on              = ['*S-1-5-32-546'],
+  Cis::Array_false $deny_log_on_rdp                = ['*S-1-5-32-546','*S-1-5-113'],
+  Cis::Array_false $trusted_delegation             = ['*S-1-0-0'],
+  Cis::Array_false $force_shutdwon_remote          = ['*S-1-5-32-544'],
+  Cis::Array_false $gen_security_audits            = ['*S-1-5-19', '*S-1-5-20'],
+  Cis::Array_false $impersonate_client             = ['*S-1-5-32-544', '*S-1-5-19', '*S-1-5-20', 'SERVICE'],
+  Cis::Array_false $increase_schedule_priority     = ['*S-1-5-32-544'],
+  Cis::Array_false $manage_device_drivers          = ['*S-1-5-32-544'],
+  Cis::Array_false $lock_pages_in_mem              = ['*S-1-0-0'],
+  Cis::Array_false $log_on_as_batch                = ['*S-1-5-32-544',],
+  Cis::Array_false $manage_audit_sec_logs          = ['*S-1-5-32-544'],
+  Cis::Array_false $modify_object_label            = ['*S-1-0-0'],
+  Cis::Array_false $mod_hw_env_values              = ['*S-1-5-32-544'],
+  Cis::Array_false $perform_vol_maint              = ['*S-1-5-32-544'],
+  Cis::Array_false $profile_single_proc            = ['*S-1-5-32-544'],
+  Cis::Array_false $profile_sys_perf               = ['*S-1-5-32-544','*S-1-5-80-3139157870-2983391045-3678747466-658725712-1809340420'],
+  Cis::Array_false $replace_proc_lvl_token         = ['*S-1-5-19', '*S-1-5-20'],
+  Cis::Array_false $restore_files_dirs             = ['*S-1-5-32-544'],
+  Cis::Array_false $shutdown_sys                   = ['*S-1-5-32-544'],
+  Cis::Array_false $sync_dir_service_data          = ['*S-1-0-0'],
+  Cis::Array_false $own_files_and_objects          = ['*S-1-5-32-544'],
 ) {
 
   if $facts['os']['family'] != 'windows' {
     fail("This class is only for Windows, not for ${facts['os']['family']}")
   }
 
-  if $is_domain_controller == true {
-    $_allow_computer_network_access = $allow_computer_network_access + ['ENTERPRISE DOMAIN CONTROLLERS']
-    $_allow_log_on_locally          = $allow_log_on_locally + ['ENTERPRISE DOMAIN CONTROLLERS']
-    $_allow_log_on_rdp              = $allow_log_on_rdp - ['Remote Desktop Users']
-    $_deny_computer_network_access  = $deny_computer_network_access - ['member of Administrators group']
-    $_trusted_delegation            = $trusted_delegation - ['No One'] + ['Administrators']
-  } else {
-    $_allow_computer_network_access = $allow_computer_network_access
-    $_allow_log_on_locally          = $allow_log_on_locally
-    $_allow_log_on_rdp              = $allow_log_on_rdp
-    $_deny_computer_network_access  = $deny_computer_network_access
-    $_trusted_delegation            = $trusted_delegation
-  }
+  #if $is_domain_controller == true {
+  #  $allow_computer_network_access = $allow_computer_network_access + ['*S-1-5-9']
+  #  $allow_log_on_locally          = $allow_log_on_locally + ['*S-1-5-9']
+  #  $allow_log_on_rdp              = $allow_log_on_rdp - ['*S-1-5-32-555']
+    # $_deny_computer_network_access  = $deny_computer_network_access - ['member of *S-1-5-32-544 group']
+    # $_trusted_delegation            = $trusted_delegation - ['*S-1-0-0'] + ['*S-1-5-32-544']
+  #} else {
+  #  $allow_computer_network_access = $allow_computer_network_access
+  #  $allow_log_on_locally          = $allow_log_on_locally
+  #  $allow_log_on_rdp              = $allow_log_on_rdp
+    # $_deny_computer_network_access  = $deny_computer_network_access
+    # $_trusted_delegation            = $trusted_delegation
+
 
   # CIS 2.2.1
-  if $access_credential_manager != false {
-    local_security_policy { 'Access Credential Manager as a trusted caller':
-      ensure       => present,
-      policy_value => join($access_credential_manager, ','),
-    }
-  }
+  # if $access_credential_manager != false {
+  #  local_security_policy { 'Access Credential Manager as a trusted caller':
+  #    ensure       => present,
+  #    policy_value => join($access_credential_manager, ','),
+  #  }
+  #}
 
-  # CIS 2.2.2
-  if $allow_computer_network_access != false {
-    local_security_policy { 'Access this computer from the network':
-      ensure       => present,
-      policy_value => join($_allow_computer_network_access, ','),
-    }
-  }
+
 
   # CIS 2.2.3
-  if $act_as_part_of_os != false {
-    local_security_policy { 'Act as part of the operating system':
-      ensure       => present,
-      policy_value => join($act_as_part_of_os, ','),
-    }
-  }
+  # if $act_as_part_of_os != false {
+  # local_security_policy { 'Act as part of the operating system':
+  #    ensure       => present,
+  #    policy_value => join($act_as_part_of_os, ','),
+  #  }
+  #}
 
   # CIS 2.2.4
   if $add_workstations_to_domain != false {
@@ -167,7 +161,7 @@ class cis::windows::local_policies::user_rights (
   if $allow_log_on_locally  != false {
     local_security_policy { 'Allow log on locally':
       ensure       => present,
-      policy_value => join($_allow_log_on_locally, ','),
+      policy_value => join($allow_log_on_locally, ','),
     }
   }
 
@@ -175,7 +169,7 @@ class cis::windows::local_policies::user_rights (
   if $allow_log_on_rdp  != false {
     local_security_policy { 'Allow log on through Remote Desktop Services':
       ensure       => present,
-      policy_value => join($_allow_log_on_rdp, ','),
+      policy_value => join($allow_log_on_rdp, ','),
     }
   }
 
@@ -212,12 +206,12 @@ class cis::windows::local_policies::user_rights (
   }
 
   # CIS 2.2.12
-  if $create_token_object  != false {
-    local_security_policy { 'Create a token object':
-      ensure       => present,
-      policy_value => join($create_token_object, ','),
-    }
-  }
+  # if $create_token_object  != false {
+  #  local_security_policy { 'Create a token object':
+  #    ensure       => present,
+  #    policy_value => join($create_token_object, ','),
+  #  }
+  #}
 
   # CIS 2.2.13
   if $create_global_objects  != false {
@@ -228,12 +222,12 @@ class cis::windows::local_policies::user_rights (
   }
 
   # CIS 2.2.14
-  if $create_perm_shared_objects  != false {
-    local_security_policy { 'Create permanent shared objects':
-      ensure       => present,
-      policy_value => join($create_perm_shared_objects, ','),
-    }
-  }
+  # if $create_perm_shared_objects  != false {
+  #  local_security_policy { 'Create permanent shared objects':
+  #    ensure       => present,
+  #    policy_value => join($create_perm_shared_objects, ','),
+  #  }
+  #}
 
   # CIS 2.2.15
   if $create_symbolic_links  != false {
@@ -252,12 +246,12 @@ class cis::windows::local_policies::user_rights (
   }
 
   # CIS 2.2.17
-  if $deny_computer_network_access  != false {
-    local_security_policy { 'Deny access to this computer from the network':
-      ensure       => present,
-      policy_value => join($_deny_computer_network_access, ','),
-    }
-  }
+  # if $deny_computer_network_access  != false {
+  #  local_security_policy { 'Deny access to this computer from the network':
+  #    ensure       => present,
+  #    policy_value => join($_deny_computer_network_access, ','),
+  #  }
+  #}
 
   # CIS 2.2.18
   if $deny_log_on_as_batch  != false {
@@ -283,163 +277,163 @@ class cis::windows::local_policies::user_rights (
     }
   }
 
-    # CIS 2.2.21
-    if $deny_log_on_rdp  != false {
-      local_security_policy { 'Deny log on through Remote Desktop Services':
-        ensure       => present,
-        policy_value => join($deny_log_on_rdp, ','),
-      }
+  # CIS 2.2.21
+  if $deny_log_on_rdp  != false {
+    local_security_policy { 'Deny log on through Remote Desktop Services':
+      ensure       => present,
+      policy_value => join($deny_log_on_rdp, ','),
     }
+  }
 
     # CIS 2.2.22
-    if $trusted_delegation  != false {
-      local_security_policy { 'Enable computer and user accounts to be trusted for delegation':
-        ensure       => present,
-        policy_value => join($_trusted_delegation, ','),
-      }
-    }
+    #if $trusted_delegation  != false {
+    #  local_security_policy { 'Enable computer and user accounts to be trusted for delegation':
+    #    ensure       => present,
+    #    policy_value => join($_trusted_delegation, ','),
+    #  }
+    #}
 
-    # CIS 2.2.23
-    if $force_shutdwon_remote  != false {
-      local_security_policy { 'Force shutdown from a remote system':
-        ensure       => present,
-        policy_value => join($force_shutdwon_remote, ','),
-      }
+  # CIS 2.2.23
+  if $force_shutdwon_remote  != false {
+    local_security_policy { 'Force shutdown from a remote system':
+      ensure       => present,
+      policy_value => join($force_shutdwon_remote, ','),
     }
+  }
 
-    # CIS 2.2.24
-    if $gen_security_audits  != false {
-      local_security_policy { 'Generate security audits':
-        ensure       => present,
-        policy_value => join($gen_security_audits, ',')
-      }
+  # CIS 2.2.24
+  if $gen_security_audits  != false {
+    local_security_policy { 'Generate security audits':
+      ensure       => present,
+      policy_value => join($gen_security_audits, ',')
     }
+  }
 
-    # CIS 2.2.25
-    if $impersonate_client  != false {
-      local_security_policy { 'Impersonate a client after authentication':
-        ensure       => present,
-        policy_value => join($impersonate_client, ',')
-      }
+  # CIS 2.2.25
+  if $impersonate_client  != false {
+    local_security_policy { 'Impersonate a client after authentication':
+      ensure       => present,
+      policy_value => join($impersonate_client, ',')
     }
+  }
 
-    # CIS 2.2.26
-    if $increase_schedule_priority  != false {
-      local_security_policy { 'Increase scheduling priority':
-        ensure       => present,
-        policy_value => join($increase_schedule_priority, ','),
-      }
+  # CIS 2.2.26
+  if $increase_schedule_priority  != false {
+    local_security_policy { 'Increase scheduling priority':
+      ensure       => present,
+      policy_value => join($increase_schedule_priority, ','),
     }
+  }
 
-    # CIS 2.2.27
-    if $manage_device_drivers  != false {
-      local_security_policy { 'Load and unload device drivers':
-        ensure       => present,
-        policy_value => join($manage_device_drivers, ','),
-      }
+  # CIS 2.2.27
+  if $manage_device_drivers  != false {
+    local_security_policy { 'Load and unload device drivers':
+      ensure       => present,
+      policy_value => join($manage_device_drivers, ','),
     }
+  }
 
-    # CIS 2.2.28
-    if $lock_pages_in_mem  != false {
-      local_security_policy { 'Lock pages in memory':
-        ensure       => present,
-        policy_value => join($lock_pages_in_mem, ','),
-      }
-    }
+  # CIS 2.2.28
+  #if $lock_pages_in_mem  != false {
+  #  local_security_policy { 'Lock pages in memory':
+  #    ensure       => present,
+  #    policy_value => join($lock_pages_in_mem, ','),
+  #  }
+  #}
 
-    # CIS 2.2.29
-    if $log_on_as_batch  != false and $enable_level_2 == true and $is_domain_controller == true {
-      local_security_policy { 'Log on as a batch job':
-        ensure       => present,
-        policy_value => join($log_on_as_batch, ','),
-      }
+  # CIS 2.2.29
+  if $log_on_as_batch  != false and $enable_level_2 == true and $is_domain_controller == true {
+    local_security_policy { 'Log on as a batch job':
+      ensure       => present,
+      policy_value => join($log_on_as_batch, ','),
     }
+  }
 
-    # CIS 2.2.30
-    if $manage_audit_sec_logs  != false {
-      local_security_policy { 'Manage auditing and security log':
-        ensure       => present,
-        policy_value => join($manage_audit_sec_logs, ','),
-      }
+  # CIS 2.2.30
+  if $manage_audit_sec_logs  != false {
+    local_security_policy { 'Manage auditing and security log':
+      ensure       => present,
+      policy_value => join($manage_audit_sec_logs, ','),
     }
+  }
 
-    # CIS 2.2.31
-    if $modify_object_label  != false {
-      local_security_policy { 'Modify an object label':
-        ensure       => present,
-        policy_value => join($modify_object_label, ','),
-      }
-    }
+  # CIS 2.2.31
+  # if $modify_object_label  != false {
+  #  local_security_policy { 'Modify an object label':
+  #    ensure       => present,
+  #    policy_value => join($modify_object_label, ','),
+  #  }
+  #}
 
-    # CIS 2.2.32
-    if $mod_hw_env_values  != false {
-      local_security_policy { 'Modify firmware environment values':
-        ensure       => present,
-        policy_value => join($mod_hw_env_values, ','),
-      }
+  # CIS 2.2.32
+  if $mod_hw_env_values  != false {
+    local_security_policy { 'Modify firmware environment values':
+      ensure       => present,
+      policy_value => join($mod_hw_env_values, ','),
     }
+  }
 
-    # CIS 2.2.33
-    if $perform_vol_maint  != false {
-      local_security_policy { 'Perform volume maintenance tasks':
-        ensure       => present,
-        policy_value => join($perform_vol_maint, ','),
-      }
+  # CIS 2.2.33
+  if $perform_vol_maint  != false {
+    local_security_policy { 'Perform volume maintenance tasks':
+      ensure       => present,
+      policy_value => join($perform_vol_maint, ','),
     }
+  }
 
-    # CIS 2.2.34
-    if $profile_single_proc  != false {
-      local_security_policy { 'Profile single process':
-        ensure       => present,
-        policy_value => join($profile_single_proc, ','),
-      }
+  # CIS 2.2.34
+  if $profile_single_proc  != false {
+    local_security_policy { 'Profile single process':
+      ensure       => present,
+      policy_value => join($profile_single_proc, ','),
     }
+  }
 
-    # CIS 2.2.35
-    if $profile_sys_perf  != false {
-      local_security_policy { 'Profile system performance':
-        ensure       => present,
-        policy_value => join($profile_sys_perf, ','),
-      }
-    }
+  # CIS 2.2.35
+  # if $profile_sys_perf  != false {
+  #  local_security_policy { 'Profile system performance':
+  #    ensure       => present,
+  #    policy_value => join($profile_sys_perf, ','),
+  #  }
+  #}
 
-    # CIS 2.2.36
-    if $replace_proc_lvl_token  != false {
-      local_security_policy { 'Replace a process level token':
-        ensure       => present,
-        policy_value => join($replace_proc_lvl_token, ','),
-      }
+  # CIS 2.2.36
+  if $replace_proc_lvl_token  != false {
+    local_security_policy { 'Replace a process level token':
+      ensure       => present,
+      policy_value => join($replace_proc_lvl_token, ','),
     }
+  }
 
-    # CIS 2.2.37
-    if $restore_files_dirs  != false {
-      local_security_policy { 'Restore files and directories':
-        ensure       => present,
-        policy_value => join($restore_files_dirs, ','),
-      }
+  # CIS 2.2.37
+  if $restore_files_dirs  != false {
+    local_security_policy { 'Restore files and directories':
+      ensure       => present,
+      policy_value => join($restore_files_dirs, ','),
     }
+  }
 
-    # CIS 2.2.38
-    if $shutdown_sys  != false {
-      local_security_policy { 'Shut down the system':
-        ensure       => present,
-        policy_value => join($shutdown_sys, ','),
-      }
+  # CIS 2.2.38
+  if $shutdown_sys  != false {
+    local_security_policy { 'Shut down the system':
+      ensure       => present,
+      policy_value => join($shutdown_sys, ','),
     }
+  }
 
-    # CIS 2.2.39
-    if $sync_dir_service_data  != false {
-      local_security_policy { 'Synchronize directory service data':
-        ensure       => present,
-        policy_value => join($sync_dir_service_data, ','),
-      }
-    }
+  # CIS 2.2.39
+  # if $sync_dir_service_data  != false {
+  #  local_security_policy { 'Synchronize directory service data':
+  #    ensure       => present,
+  #    policy_value => join($sync_dir_service_data, ','),
+  #  }
+  #}
 
-    # CIS 2.2.40
-    if $own_files_and_objects  != false {
-      local_security_policy { 'Take ownership of files or other objects':
-        ensure       => present,
-        policy_value => join($own_files_and_objects, ','),
-      }
+  # CIS 2.2.40
+  if $own_files_and_objects  != false {
+    local_security_policy { 'Take ownership of files or other objects':
+      ensure       => present,
+      policy_value => join($own_files_and_objects, ','),
     }
+  }
 }

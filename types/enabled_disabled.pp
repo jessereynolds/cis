@@ -1,1 +1,1 @@
-type Cis::Enabled_disabled = Variant[Enum['Enabled','enabled','Disabled','disabled'], Boolean[false]]
+type Cis::Enabled_disabled = Variant[Enum['0','1'], Boolean[false]]

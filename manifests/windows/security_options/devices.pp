@@ -1,7 +1,7 @@
 #
 class cis::windows::security_options::devices (
-  Cis::Array_false $format_eject_devices_users        = ['Administrators'],
-  Cis::Enabled_disabled $prevent_users_print_drivers = 'Enabled',
+  Cis::Array_false $format_eject_devices_users        = ["\"Administrators\""],
+  Cis::Enabled_disabled $prevent_users_print_drivers = '0',
 ) {
 
   if $::os['family'] != 'windows' {

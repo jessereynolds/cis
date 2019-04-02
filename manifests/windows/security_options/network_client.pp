@@ -1,8 +1,8 @@
 #
 class cis::windows::security_options::network_client (
-  Cis::Enabled_disabled $sign_comms_always              = 'Enabled',
-  Cis::Enabled_disabled $sign_comms_server_agrees       = 'Enabled',
-  Cis::Enabled_disabled $send_unencrypted_password_smb  = 'Disabled',
+  Cis::Enabled_disabled $sign_comms_always              = '0',
+  Cis::Enabled_disabled $sign_comms_server_agrees       = '0',
+  Cis::Enabled_disabled $send_unencrypted_password_smb  = '1',
 ) {
 
   if $facts['os']['family'] != 'windows' {

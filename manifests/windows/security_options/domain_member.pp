@@ -1,11 +1,11 @@
 #
 class cis::windows::security_options::domain_member (
-  Cis::Enabled_disabled $encrypt_sign_data                = 'Enabled',
-  Cis::Enabled_disabled $encrypt_channel_data             = 'Enabled',
-  Cis::Enabled_disabled $sign_channel_data                = 'Enabled',
-  Cis::Enabled_disabled $disable_machine_password_change  = 'Disabled',
+  Cis::Enabled_disabled $encrypt_sign_data                = '0',
+  Cis::Enabled_disabled $encrypt_channel_data             = '0',
+  Cis::Enabled_disabled $sign_channel_data                = '0',
+  Cis::Enabled_disabled $disable_machine_password_change  = '1',
   Integer[1, 30] $machine_max_password_age                = 30,
-  Cis::Enabled_disabled $require_strong_session_key       = 'Enabled',
+  Cis::Enabled_disabled $require_strong_session_key       = '0',
 ) {
 
   if $facts['os']['family'] != 'windows' {
